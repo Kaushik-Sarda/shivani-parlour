@@ -67,7 +67,32 @@ Same steps, but done on the hosting service:
 
 ---
 
-## 🚀 Going Live — Step by Step (Netlify, free)
+## ✅ LIVE via GitHub Pages
+
+The site is live at **https://kaushik-sarda.github.io/shivani-parlour/**
+- Repository: https://github.com/Kaushik-Sarda/shivani-parlour
+- Hosting: GitHub Pages (free, automatic HTTPS), serves the `main` branch.
+
+**Updating the live site:** edit files in this folder, then run:
+```
+git add -A
+git commit -m "describe the change"
+git push
+```
+The live site refreshes automatically in about a minute.
+
+**Handing over the website:** GitHub repo → Settings → scroll to
+"Danger Zone" → **Transfer ownership** → enter the new maintainer's
+GitHub username. The site, files, and history move to their account
+(the live URL then changes to their username — update shared links).
+
+**Custom domain (optional):** buy a domain (see below), then in the repo:
+Settings → Pages → Custom domain → enter it, and at the registrar create
+a CNAME record pointing `www` to `kaushik-sarda.github.io`.
+
+---
+
+## 🚀 Alternative: Going Live via Netlify (not currently used)
 
 1. Go to **https://app.netlify.com/signup** and sign up (use the salon's
    Google account/email so the login can be handed over later).
