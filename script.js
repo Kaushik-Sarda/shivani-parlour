@@ -62,6 +62,15 @@ if (video && placeholder) {
   placeholder.hidden = true;
   video.addEventListener('error', showPlaceholder);
   video.querySelector('source').addEventListener('error', showPlaceholder);
+  // If loading was blocked (e.g. data-saver mode), a tap on the
+  // placeholder retries the video instead of doing nothing.
+  placeholder.addEventListener('click', () => {
+    video.hidden = false;
+    placeholder.hidden = true;
+    video.load();
+    video.play().catch(() => {});
+  });
+  placeholder.style.cursor = 'pointer';
   video.addEventListener('loadedmetadata', () => {
     if (video.videoHeight > video.videoWidth) {
       document.getElementById('videoFrame').classList.add('is-portrait');
