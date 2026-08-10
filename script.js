@@ -47,34 +47,15 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
   });
 }
 
-// Video testimonial: the player is shown by default; if the file is
-// missing or fails to load, the "coming soon" placeholder takes over.
-// Works over http and when the page is opened directly as a file.
-// The frame adapts to portrait (phone/WhatsApp) videos automatically.
+// Video testimonial: always a ready-to-play player. The frame adapts
+// to portrait (phone/WhatsApp) videos automatically.
 const video = document.getElementById('testimonialVideo');
-const placeholder = document.getElementById('videoPlaceholder');
-if (video && placeholder) {
-  const showPlaceholder = () => {
-    video.hidden = true;
-    placeholder.hidden = false;
-  };
-  video.hidden = false;
-  placeholder.hidden = true;
-  video.addEventListener('error', showPlaceholder);
-  video.querySelector('source').addEventListener('error', showPlaceholder);
-  // If loading was blocked (e.g. data-saver mode), a tap on the
-  // placeholder retries the video instead of doing nothing.
-  placeholder.addEventListener('click', () => {
-    video.hidden = false;
-    placeholder.hidden = true;
-    video.load();
-    video.play().catch(() => {});
-  });
-  placeholder.style.cursor = 'pointer';
+if (video) {
   video.addEventListener('loadedmetadata', () => {
-    if (video.videoHeight > video.videoWidth) {
-      document.getElementById('videoFrame').classList.add('is-portrait');
-    }
+    document.getElementById('videoFrame').classList.toggle(
+      'is-portrait',
+      video.videoHeight > video.videoWidth
+    );
   });
 }
 
