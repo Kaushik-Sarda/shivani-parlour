@@ -67,11 +67,16 @@ Same steps, but done on the hosting service:
 
 ---
 
-## ✅ LIVE via GitHub Pages
+## ✅ LIVE at https://shivaniherbal.com
 
-The site is live at **https://kaushik-sarda.github.io/shivani-parlour/**
-- Repository: https://github.com/Kaushik-Sarda/shivani-parlour
-- Hosting: GitHub Pages (free, automatic HTTPS), serves the `main` branch.
+- Custom domain: **shivaniherbal.com** (bought on GoDaddy, renews yearly —
+  keep the GoDaddy login safe and the renewal reminder on the salon's email)
+- DNS at GoDaddy: 4 A records (@ → 185.199.108/109/110/111.153) and
+  CNAME www → kaushik-sarda.github.io. Don't delete these.
+- Repository: https://github.com/Kaushik-Sarda/shivani-parlour (the `CNAME`
+  file in the repo holds the domain — don't delete that file either)
+- Hosting: GitHub Pages (free, HTTPS enforced), serves the `main` branch.
+- The old kaushik-sarda.github.io/shivani-parlour link auto-redirects here.
 
 **Updating the live site:** edit files in this folder, then run:
 ```
