@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
 </head>
 <body>
@@ -631,16 +631,31 @@
           </figure>
         </div>
 
-        <!-- Video testimonial -->
-        <div class="video-testimonial reveal">
-          <div class="video-testimonial__frame is-portrait" id="videoFrame">
-            <video id="testimonialVideo" controls preload="metadata" playsinline poster="assets/testimonial-poster.jpg">
-              <source src="assets/testimonial.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="video-testimonial__copy">
+        <!-- Shivani Stories — video reel strip.
+             To add a video: copy the <figure class="story"> block, point the
+             source at the new file in assets/videos/, and add its poster. -->
+        <div class="stories reveal">
+          <svg class="stories__mandala" viewBox="0 0 400 400" fill="none" stroke="currentColor" aria-hidden="true">
+            <g stroke-width="1.1">
+              <circle cx="200" cy="200" r="70" stroke-dasharray="3 7"/>
+              <circle cx="200" cy="200" r="100"/>
+              <circle cx="200" cy="200" r="140" stroke-dasharray="1 9"/>
+              <use href="#m-petals"/>
+            </g>
+          </svg>
+          <div class="stories__head">
             <h3>Hear it from our clients</h3>
-            <p>Real stories from the women who trust Shivani with their beauty — in their own words.</p>
+            <p>Real stories from the women who trust Shivani with their beauty — in their own words. Swipe to watch.</p>
+          </div>
+          <div class="stories__rail" id="storiesRail">
+            <figure class="story">
+              <video controls preload="metadata" playsinline poster="assets/testimonial-poster.jpg">
+                <source src="assets/testimonial.mp4" type="video/mp4" />
+              </video>
+              <figcaption>A Happy Client's Story</figcaption>
+            </figure>
+          </div>
+          <div class="stories__cta">
             <a class="btn btn--primary" href="https://wa.me/919948926111?text=Hi%20Shivani!%20I%27d%20love%20to%20share%20my%20experience." target="_blank" rel="noopener">Share Your Story</a>
           </div>
         </div>
@@ -770,6 +785,6 @@
     <span class="wa-float__pulse" aria-hidden="true"></span>
   </a>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=11"></script>
 </body>
 </html>

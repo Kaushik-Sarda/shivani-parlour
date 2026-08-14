@@ -47,17 +47,15 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
   });
 }
 
-// Video testimonial: always a ready-to-play player. The frame adapts
-// to portrait (phone/WhatsApp) videos automatically.
-const video = document.getElementById('testimonialVideo');
-if (video) {
-  video.addEventListener('loadedmetadata', () => {
-    document.getElementById('videoFrame').classList.toggle(
-      'is-portrait',
-      video.videoHeight > video.videoWidth
-    );
+// Shivani Stories rail: when one video plays, pause the others.
+const storyVideos = document.querySelectorAll('.stories__rail video');
+storyVideos.forEach((vid) => {
+  vid.addEventListener('play', () => {
+    storyVideos.forEach((other) => {
+      if (other !== vid) other.pause();
+    });
   });
-}
+});
 
 // 3D tilt on the hero artwork card — desktop pointers only, and skipped
 // entirely when the user prefers reduced motion.

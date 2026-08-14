@@ -961,115 +961,83 @@ img, svg { max-width: 100%; display: block; }
   letter-spacing: .05em;
 }
 
-/* video testimonial */
-.video-testimonial {
+/* Shivani Stories — swipeable video reel strip */
+.stories {
   margin-top: 2.8rem;
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: center;
-  background: linear-gradient(150deg, var(--espresso), #5c3320);
-  border-radius: 28px;
-  padding: clamp(1.4rem, 3.5vw, 2.6rem);
-  box-shadow: var(--shadow-lg);
-  color: #f5efe0;
-}
-.video-testimonial__frame {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background:
-    radial-gradient(400px 240px at 70% 20%, rgba(158,81,53,.5), transparent 70%),
-    linear-gradient(150deg, #3a2317, #241209);
-}
-.video-testimonial__frame video {
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
-/* portrait recordings (phone/WhatsApp) get a phone-style frame */
-.video-testimonial__frame.is-portrait {
-  aspect-ratio: 9 / 16;
-  max-width: min(300px, 76vw);
-  margin-inline: auto;
-  border: 5px solid rgba(242, 235, 219, .18);
-  border-radius: 26px;
-}
-.video-testimonial__copy h3 {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.6vw, 1.8rem);
-  margin-bottom: .6rem;
-}
-.video-testimonial__copy p {
-  color: #d8ccae;
-  margin-bottom: 1.4rem;
-  max-width: 40ch;
-}
-
-/* ═══ INSTAGRAM ═══ */
-.insta { padding: 0 0 clamp(3rem, 6vw, 4.5rem); background: var(--bg); }
-.insta__card {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: clamp(1.2rem, 3vw, 2.2rem);
   position: relative;
   overflow: hidden;
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%23f2ebdb' stroke-opacity='.07'%3E%3Cpath d='M24 12c10 3 15 12 11 20s-15 9-20 3 0-20 9-23z'/%3E%3Cpath d='M72 58c10 3 15 12 11 20s-15 9-20 3 0-20 9-23z'/%3E%3C/g%3E%3C/svg%3E"),
-    radial-gradient(700px 300px at 88% 0%, rgba(150, 70, 31, .45), transparent 65%),
-    radial-gradient(500px 260px at 5% 100%, rgba(121, 112, 73, .35), transparent 65%),
+    radial-gradient(500px 260px at 85% 0%, rgba(158,81,53,.4), transparent 70%),
     linear-gradient(150deg, var(--espresso), #5c3320);
   border-radius: 28px;
-  padding: clamp(1.8rem, 4vw, 3rem);
+  padding: clamp(1.6rem, 3.5vw, 2.6rem);
   box-shadow: var(--shadow-lg);
   color: #f5efe0;
-  text-decoration: none;
-  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
 }
-.insta__card::after {
-  content: "";
+.stories__mandala {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.12) 48%, transparent 60%);
-  transform: translateX(-80%);
-  transition: transform .9s var(--ease);
+  width: clamp(260px, 34vw, 420px);
+  right: -12%;
+  bottom: -30%;
+  color: var(--gold);
+  opacity: .14;
   pointer-events: none;
+  animation: mandala-spin 110s linear infinite;
 }
-.insta__card:hover::after { transform: translateX(80%); }
-.insta__card:hover { transform: translateY(-5px); box-shadow: 0 30px 70px rgba(68, 34, 25, .35); }
-.insta__icon {
-  width: 72px; height: 72px;
-  display: grid;
-  place-items: center;
-  border-radius: 22px;
-  background: linear-gradient(45deg, #f9ce34, #ee2a7b 55%, #6228d7);
-  color: #fff;
-  box-shadow: 0 10px 26px rgba(238, 42, 123, .35);
-  transition: transform .3s var(--ease);
-}
-.insta__card:hover .insta__icon { transform: rotate(-6deg) scale(1.07); }
-.insta__copy h2 {
+.stories__head { text-align: center; position: relative; }
+.stories__head h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
-  margin-bottom: .35rem;
+  font-size: clamp(1.4rem, 2.6vw, 1.8rem);
+  margin-bottom: .5rem;
 }
-.insta__copy p { color: #d8ccae; font-size: .97rem; max-width: 52ch; }
-.insta__handle {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  font-weight: 700;
-  font-size: .97rem;
-  color: #962fbf;
-  background: #fffdf7;
-  border-radius: 999px;
-  padding: .85rem 1.5rem;
-  white-space: nowrap;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, .3);
-  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+.stories__head p {
+  color: #d8ccae;
+  max-width: 52ch;
+  margin: 0 auto 1.6rem;
 }
-.insta__card:hover .insta__handle { transform: scale(1.04); box-shadow: 0 12px 30px rgba(0, 0, 0, .4); }
+.stories__rail {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: .4rem .2rem 1rem;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-color: rgba(242,235,219,.35) transparent;
+  scrollbar-width: thin;
+}
+.stories__rail::-webkit-scrollbar { height: 6px; }
+.stories__rail::-webkit-scrollbar-thumb { background: rgba(242,235,219,.3); border-radius: 3px; }
+.story {
+  flex: 0 0 auto;
+  width: min(230px, 66vw);
+  scroll-snap-align: center;
+  margin: 0;
+}
+.story:first-child { margin-left: auto; }
+.story:last-child { margin-right: auto; }
+.story video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 5px solid rgba(242, 235, 219, .16);
+  background: #241209;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .35);
+  transition: transform .3s var(--ease), border-color .3s var(--ease);
+}
+.story video:hover { transform: translateY(-4px); border-color: rgba(201, 138, 46, .45); }
+.story figcaption {
+  text-align: center;
+  margin-top: .7rem;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #d8ccae;
+}
+.stories__cta { display: flex; justify-content: center; margin-top: 1.2rem; position: relative; }
 
 /* ═══ VISIT ═══ */
 .visit { padding: clamp(4rem, 8vw, 7rem) 0; background: var(--surface); }
@@ -1273,7 +1241,6 @@ img, svg { max-width: 100%; display: block; }
   .hero__art-card { max-width: 280px; transform: rotate(0deg); }
   .about__grid, .visit__grid, .hygiene__grid { grid-template-columns: 1fr; }
   .hygiene__list { grid-template-columns: 1fr; }
-  .video-testimonial { grid-template-columns: 1fr; }
   .book-card { margin-top: 0; }
   .footer__inner { grid-template-columns: 1fr; gap: 2rem; }
 
@@ -1349,8 +1316,8 @@ img, svg { max-width: 100%; display: block; }
   .insta__icon svg { width: 28px; height: 28px; }
   .insta__handle { padding: .75rem 1.2rem; font-size: .9rem; }
 
-  .video-testimonial { padding: 1.3rem 1.3rem 1.6rem; }
-  .video-testimonial__frame.is-portrait { max-width: min(250px, 82vw); }
+  .stories { padding: 1.3rem 1.1rem 1.5rem; }
+  .story { width: min(200px, 62vw); }
 
   .visit__card { padding: 1.5rem 1.2rem; }
   .book-card { padding: 1.7rem 1.4rem; }
