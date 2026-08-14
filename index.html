@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="styles.css?v=12" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
 </head>
 <body>
@@ -580,56 +580,9 @@
           </div>
         </div>
 
-        <div class="reviews__grid">
-          <figure class="review-card reveal">
-            <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
-            <blockquote>“The salon's commitment to hygiene was evident in every detail — skin glowing and rejuvenated!”</blockquote>
-            <figcaption>
-              <span class="review-card__avatar" aria-hidden="true">P</span>
-              <span><strong>Pooja</strong><small>Justdial Review</small></span>
-            </figcaption>
-          </figure>
-          <figure class="review-card reveal">
-            <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
-            <blockquote>“A premium parlour one should definitely visit — ultra modern ambience and trained staff.”</blockquote>
-            <figcaption>
-              <span class="review-card__avatar" aria-hidden="true">M</span>
-              <span><strong>Magicpin Reviewer</strong><small>Magicpin Review</small></span>
-            </figcaption>
-          </figure>
-          <figure class="review-card reveal">
-            <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
-            <blockquote>“Perfect place to pamper yourself.”</blockquote>
-            <figcaption>
-              <span class="review-card__avatar" aria-hidden="true">M</span>
-              <span><strong>MAK</strong><small>Justdial Review</small></span>
-            </figcaption>
-          </figure>
-          <figure class="review-card reveal">
-            <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
-            <blockquote>“Amazing and excellent parlour — hygienic care taking.”</blockquote>
-            <figcaption>
-              <span class="review-card__avatar" aria-hidden="true">B</span>
-              <span><strong>Bewtee Reviewer</strong><small>Bewtee Review</small></span>
-            </figcaption>
-          </figure>
-          <figure class="review-card reveal">
-            <div class="review-card__stars" aria-label="4 star review">★★★★☆</div>
-            <blockquote>“One among the good beauty salons in Himayatnagar.”</blockquote>
-            <figcaption>
-              <span class="review-card__avatar" aria-hidden="true">E</span>
-              <span><strong>Ed</strong><small>Bewtee Review</small></span>
-            </figcaption>
-          </figure>
-          <figure class="review-card reveal">
-            <div class="review-card__stars" aria-label="5 star review">★★★★★</div>
-            <blockquote>“Excellent!”</blockquote>
-            <figcaption>
-              <span class="review-card__avatar" aria-hidden="true">M</span>
-              <span><strong>Madhuri</strong><small>Justdial Review</small></span>
-            </figcaption>
-          </figure>
-        </div>
+        <!-- Written reviews load from reviews.json — edit that file to
+             add, change, or remove testimonials (see HANDOVER-MANUAL.pdf). -->
+        <div class="reviews__grid" id="reviewsGrid"></div>
 
         <!-- Shivani Stories — video reel strip.
              To add a video: copy the <figure class="story"> block, point the
@@ -647,14 +600,11 @@
             <h3>Hear it from our clients</h3>
             <p>Real stories from the women who trust Shivani with their beauty — in their own words. Swipe to watch.</p>
           </div>
-          <div class="stories__rail" id="storiesRail">
-            <figure class="story">
-              <video controls preload="metadata" playsinline poster="assets/testimonial-poster.jpg">
-                <source src="assets/testimonial.mp4" type="video/mp4" />
-              </video>
-              <figcaption>A Happy Client's Story</figcaption>
-            </figure>
-          </div>
+          <!-- Videos load from videos.json — edit that file to add or
+               remove client videos (see HANDOVER-MANUAL.pdf). -->
+          <button class="stories__arrow stories__arrow--left" id="storiesLeft" aria-label="Scroll videos left" hidden>&#10094;</button>
+          <div class="stories__rail" id="storiesRail"></div>
+          <button class="stories__arrow stories__arrow--right" id="storiesRight" aria-label="Scroll videos right" hidden>&#10095;</button>
           <div class="stories__cta">
             <a class="btn btn--primary" href="https://wa.me/919948926111?text=Hi%20Shivani!%20I%27d%20love%20to%20share%20my%20experience." target="_blank" rel="noopener">Share Your Story</a>
           </div>
@@ -785,6 +735,6 @@
     <span class="wa-float__pulse" aria-hidden="true"></span>
   </a>
 
-  <script src="script.js?v=11"></script>
+  <script src="script.js?v=12"></script>
 </body>
 </html>

@@ -1039,6 +1039,27 @@ img, svg { max-width: 100%; display: block; }
 }
 .stories__cta { display: flex; justify-content: center; margin-top: 1.2rem; position: relative; }
 
+.stories__arrow {
+  position: absolute;
+  top: 55%;
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid rgba(242, 235, 219, .4);
+  border-radius: 50%;
+  background: rgba(36, 18, 9, .75);
+  color: #f5efe0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background .25s var(--ease), transform .25s var(--ease);
+}
+.stories__arrow:hover { background: rgba(150, 70, 31, .85); transform: scale(1.08); }
+.stories__arrow:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.stories__arrow--left { left: clamp(.4rem, 1.5vw, 1.2rem); }
+.stories__arrow--right { right: clamp(.4rem, 1.5vw, 1.2rem); }
+
 /* ═══ VISIT ═══ */
 .visit { padding: clamp(4rem, 8vw, 7rem) 0; background: var(--surface); }
 .visit__grid {
